@@ -1,0 +1,32 @@
+{
+  "name": "require-poisoning",
+  "version": "1.0.0",
+  "description": "Cache-Poisoning applied to Node.js require statements so you inject your own modules",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/3rd-Eden/require-poisoning.git"
+  },
+  "keywords": [
+    "require",
+    "mock",
+    "poisoning",
+    "cache",
+    "mocking",
+    "stub",
+    "overload"
+  ],
+  "author": "Arnout Kazemier",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/3rd-Eden/require-poisoning/issues"
+  },
+  "homepage": "https://github.com/3rd-Eden/require-poisoning#readme",
+  "devDependencies": {
+    "assume": "^2.1.0",
+    "mocha": "^5.2.0"
+  }
+}
