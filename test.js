@@ -8,17 +8,12 @@ describe('require-poisoning', function () {
   });
 
   it('overriddes an existing require', function () {
-    poison('mocha', {
-      exports: 'faked'
-    });
-
+    poison('mocha', 'faked');
     assume(require('mocha')).equals('faked');
   });
 
   it('undo/redo the cache poisoning', function () {
-    const undo = poison('assume', {
-      exports: 'does not exist'
-    });
+    const undo = poison('assume', 'does not exist');
 
     assume(require('assume')).equals('does not exist');
 

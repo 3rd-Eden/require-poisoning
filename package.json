@@ -1,6 +1,6 @@
 {
   "name": "require-poisoning",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Cache-Poisoning applied to Node.js require statements so you inject your own modules",
   "main": "index.js",
   "scripts": {

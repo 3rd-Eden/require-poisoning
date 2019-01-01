@@ -21,9 +21,7 @@ A single function is returned when you require the module which accepts the
 following arguments:
 
 - `name` Name of the module that needs to be overridden
-- `options` Additional configuration:
-  - `resolved` Optional pre-resolved path to the module, defaults to `require.resolve`
-  - `exports` The value that it needs to be overridden with.
+- `value` Data it needs to override with.
 
 For example, if you wish to override the `react-native` module, you would do
 the following:
@@ -32,9 +30,7 @@ the following:
 const poison = require('require-poisoning');
 
 poison('react-native', {
-  exports: {
-    AsyncStorage: require('asyncstorageapi')
-  }
+  AsyncStorage: require('asyncstorageapi')
 });
 ```
 

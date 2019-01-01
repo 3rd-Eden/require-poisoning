@@ -3,31 +3,29 @@
  * existing modules.
  *
  * @param {String} name Name of the module to override.
- * @param {Object} options Configuration for cache poisoning
+ * @param {Mixed} value Data it needs to poison with.
  * @returns {Function} Undo functionality, restores previous poisoned module
  * @public
  */
-module.exports = function poisoning(name, options) {
-  options = options || {};
-
-  const resolved = options.resolved || require.resolve(name);
-  const old = require.cache[resolved];
+module.exports = function poisoning(name, value) {
+  const key = require.resolve(name);
+  const old = require.cache[key];
 
   //
   // Override the existing cache with our newly aquired data.
   //
-  require.cache[resolved] = {
-    exports: options.exports,
-    filename: resolved,
-    id: resolved,
-    loaded: true
+  require.cache[key] = {
+    exports: value,
+    filename: key,
+    loaded: true,
+    id: key
   };
 
   return function undo() {
-    require.cache[resolved] = old;
+    require.cache[key] = old;
 
     return function redo() {
-      return poisoning(name, options);
+      return poisoning(name, value);
     };
   };
 };
